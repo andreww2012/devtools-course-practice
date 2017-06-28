@@ -8,7 +8,7 @@
 typedef unsigned int MemoryBlock;
 
 class BitArray {
-public:
+ public:
   explicit BitArray(const int size = 32);
   BitArray(const BitArray& bit_array);
   ~BitArray(void);
@@ -30,12 +30,12 @@ public:
 
   std::string ToString(void) const;
 
-private:
+ private:
   unsigned int GetBlockNumber(const unsigned int global_bit_number) const;
   unsigned int GetLocalBitNumber(const unsigned int global_bit_number) const;
   MemoryBlock GetMask(const unsigned int global_bit_number) const;
 
-  unsigned int size_;
+  int size_;
 
   unsigned int nblocks_;
   MemoryBlock* memory_blocks_;

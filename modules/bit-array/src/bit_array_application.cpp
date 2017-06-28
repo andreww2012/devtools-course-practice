@@ -6,7 +6,7 @@
 
 BitArrayApp::BitArrayApp() : message_("") {}
 
-std::string BitArrayApp::Help(const char* appname, const char* message = "") {
+void BitArrayApp::Help(const char* appname, const char* message) {
   message_ = std::string(message) +
     "This is a bit array application.\n\n" +
     "In fact, this app doesn't make any sense. The only purpose " +
@@ -42,7 +42,7 @@ void BitArrayApp::ParseBitArray(const std::string& bit_array) {
   bit_array1_ = ba;
 }
 
-std::string BitArrayApp::operator()(int argc, char** argv) {
+std::string BitArrayApp::operator()(int argc, const char** argv) {
   if (argc == 1) {
     Help(argv[0]);
     return message_;
@@ -78,7 +78,7 @@ std::string BitArrayApp::operator()(int argc, char** argv) {
     case "set":
       try {
         bit_array1_.SetBit(command_argument);
-      } catch (std::string e) {
+      } catch (std::string& e) {
         Help(argv[0], "Error: incorrect index.\n\n");
       }
       break;
@@ -86,7 +86,7 @@ std::string BitArrayApp::operator()(int argc, char** argv) {
     case "clear":
       try {
         bit_array1_.ClearBit(command_argument);
-      } catch (std::string e) {
+      } catch (std::string& e) {
         Help(argv[0], "Error: incorrect index.\n\n");
       }
       break;

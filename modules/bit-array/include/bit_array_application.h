@@ -16,8 +16,8 @@ class BitArrayApp {
   std::string message_;
   BitArray bit_array1_, bit_array2_;
 
-  std::string Help(const char* appname, const char* message = "");
+  void Help(const char* appname, const char* message = "");
   void ParseBitArray(const std::string& bit_array);
 };
 
-#endif // MODULES_BIT_ARRAY_INCLUDE_BIT_ARRAY_APPLICATION_H_
+#endif  // MODULES_BIT_ARRAY_INCLUDE_BIT_ARRAY_APPLICATION_H_

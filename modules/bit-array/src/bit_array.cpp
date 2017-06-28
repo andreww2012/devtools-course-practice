@@ -21,8 +21,6 @@ BitArray::BitArray(const int size) {
   }
 }
 
-
-
 BitArray::BitArray(const BitArray& bit_array) {
   size_ = bit_array.size_;
   nblocks_ = bit_array.nblocks_;
@@ -33,14 +31,10 @@ BitArray::BitArray(const BitArray& bit_array) {
   }
 }
 
-
-
 BitArray::~BitArray() {
   delete[] memory_blocks_;
   memory_blocks_ = nullptr;
 }
-
-
 
 BitArray& BitArray::operator=(const BitArray& bit_array) {
   if (this != &bit_array) {
@@ -57,27 +51,19 @@ BitArray& BitArray::operator=(const BitArray& bit_array) {
   return *this;
 }
 
-
-
 unsigned int BitArray::GetSize() const {
   return size_;
 }
-
-
 
 unsigned int BitArray::GetBlockNumber(const unsigned int global_bit_number)
 const {
   return global_bit_number / block_size_;
 }
 
-
-
 unsigned int BitArray::GetLocalBitNumber(const unsigned int global_bit_number)
 const {
   return global_bit_number % block_size_;
 }
-
-
 
 MemoryBlock BitArray::GetMask(const unsigned int global_bit_number) const {
   MemoryBlock mask = 1;
@@ -85,8 +71,6 @@ MemoryBlock BitArray::GetMask(const unsigned int global_bit_number) const {
 
   return mask;
 }
-
-
 
 void BitArray::SetBit(const int bit_number) {
   if (bit_number <= 0 || bit_number >= size_) {
@@ -96,8 +80,6 @@ void BitArray::SetBit(const int bit_number) {
   memory_blocks_[GetBlockNumber(bit_number)] |= GetMask(bit_number);
 }
 
-
-
 void BitArray::ClearBit(const int bit_number) {
   if (bit_number <= 0 || bit_number >= size_) {
     throw std::string("Incorrect index");
@@ -105,8 +87,6 @@ void BitArray::ClearBit(const int bit_number) {
 
   memory_blocks_[GetBlockNumber(bit_number)] &= ~GetMask(bit_number);
 }
-
-
 
 int BitArray::GetBit(const int bit_number) const {
   if (bit_number <= 0 || bit_number >= size_) {
@@ -123,8 +103,6 @@ int BitArray::GetBit(const int bit_number) const {
 
   return bit_value;
 }
-
-
 
 BitArray BitArray::operator&(const BitArray& bit_array) const {
   int size = size_;
@@ -143,8 +121,6 @@ BitArray BitArray::operator&(const BitArray& bit_array) const {
   return tempBitArray;
 }
 
-
-
 BitArray BitArray::operator|(const BitArray& bit_array) const {
   int size = size_;
   if (size_ < bit_array.size_) {
@@ -161,8 +137,6 @@ BitArray BitArray::operator|(const BitArray& bit_array) const {
 
   return tempBitArray;
 }
-
-
 
 BitArray BitArray::operator^(const BitArray& bit_array) const {
   int size = size_;
@@ -181,12 +155,10 @@ BitArray BitArray::operator^(const BitArray& bit_array) const {
   return tempBitArray;
 }
 
-
-
 BitArray BitArray::operator~() const {
   BitArray tempBitArray(*this);
 
-  for (unsigned int i = 0; i < tempBitArray.size_; i++) {
+  for (int i = 0; i < tempBitArray.size_; i++) {
     if (GetBit(i) == 0) {
       tempBitArray.SetBit(i);
     } else {
@@ -196,8 +168,6 @@ BitArray BitArray::operator~() const {
 
   return tempBitArray;
 }
-
-
 
 bool BitArray::operator==(const BitArray& bit_array) const {
   if (size_ == bit_array.size_) {
@@ -210,13 +180,9 @@ bool BitArray::operator==(const BitArray& bit_array) const {
   return false;
 }
 
-
-
 bool BitArray::operator!=(const BitArray& bit_array) const {
   return !(*this == bit_array);
 }
-
-
 
 std::string BitArray::ToString() const {
   std::string outputString;
@@ -230,4 +196,3 @@ std::string BitArray::ToString() const {
 
   return outputString;
 }
-
