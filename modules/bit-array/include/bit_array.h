@@ -16,9 +16,9 @@ public:
   BitArray& operator=(const BitArray& bit_array);
 
   unsigned int GetSize(void) const;
-  void SetBit(const unsigned int bit_number);
-  void ClearBit(const unsigned int bit_number);
-  int GetBit(const unsigned int bit_number) const;
+  void SetBit(const int bit_number);
+  void ClearBit(const int bit_number);
+  int GetBit(const int bit_number) const;
 
   BitArray operator&(const BitArray& bit_array) const;
   BitArray operator|(const BitArray& bit_array) const;
