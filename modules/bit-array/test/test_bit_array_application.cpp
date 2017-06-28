@@ -2,10 +2,10 @@
 
 #include <gtest/gtest.h>
 
-#include "include/bit_array_application.h"
-
 #include <string>
 #include <vector>
+
+#include "include/bit_array_application.h"
 
 using ::testing::internal::RE;
 
