@@ -31,7 +31,7 @@ add_test(
     NAME ${prefix}_can_Invert_Bitarray
     COMMAND ${APPLICATION} "0011" "0" "invert"
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Invert_Bitarray PROPERTIES
     PASS_REGULAR_EXPRESSION "1100"
     LABELS "${MODULE}")
 
@@ -39,7 +39,7 @@ add_test(
     NAME ${prefix}_can_Get_Size_Of_Bitarray
     COMMAND ${APPLICATION} "0011" "0" "invert"
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Get_Size_Of_Bitarray PROPERTIES
     PASS_REGULAR_EXPRESSION "4"
     LABELS "${MODULE}")
 
@@ -47,7 +47,7 @@ add_test(
     NAME ${prefix}_can_Unite_Bitarrays
     COMMAND ${APPLICATION} "0011" "011101" "union"
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Unite_Bitarrays PROPERTIES
     PASS_REGULAR_EXPRESSION "001100"
     LABELS "${MODULE}")
 
@@ -55,6 +55,6 @@ add_test(
     NAME ${prefix}_can_Intersect_Bitarrays
     COMMAND ${APPLICATION} "0011" "011101" "intersection"
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Intersect_Bitarrays PROPERTIES
     PASS_REGULAR_EXPRESSION "011101"
     LABELS "${MODULE}")
