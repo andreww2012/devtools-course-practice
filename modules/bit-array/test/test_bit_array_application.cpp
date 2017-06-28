@@ -27,8 +27,6 @@ class ApplicationTest: public ::testing::Test {
   }
 
   void Assert(std::string expected) {
-    std::cout << output_ << std::endl;
-    std::cout << expected << std::endl;
     EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
   }
 
@@ -74,7 +72,7 @@ TEST_F(ApplicationTest, app_checks_incorrect_command) {
 
   Act(args);
 
-  Assert("Error: command is not specified.*");
+  Assert("Error: incorrect command.*");
 }
 
 TEST_F(ApplicationTest, app_checks_set_command_needs_bit_number) {
