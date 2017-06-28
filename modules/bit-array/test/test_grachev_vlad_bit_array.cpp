@@ -441,7 +441,7 @@ TEST(BitArrayTest, Can_Invert_Large_BitArray) {
 TEST(BitArrayTest, Can_Transform_Bit_Array_Into_Strign) {
   // Arrange
   BitArray bit_array(8);
-  std::string result_string, expected_strign = "00011010";
+  std::string result_string, expected_strign = "01011000";
 
   // Act
   bit_array.SetBit(1);

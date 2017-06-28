@@ -185,14 +185,15 @@ bool BitArray::operator!=(const BitArray& bit_array) const {
 }
 
 std::string BitArray::ToString() const {
-  std::string outputString;
-  for (int i = size_ - 1; i >= 0; i--) {
+  std::string output_string;
+
+  for (int i = 0; i < size_; i++) {
     if (GetBit(i) == 1) {
-      outputString += '1';
+      output_string += '1';
     } else {
-      outputString += '0';
+      output_string += '0';
     }
   }
 
-  return outputString;
+  return output_string;
 }
