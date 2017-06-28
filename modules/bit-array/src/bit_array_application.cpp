@@ -8,21 +8,21 @@ BitArrayApp::BitArrayApp() : message_("") {}
 
 void BitArrayApp::Help(const char* appname, const char* message) {
   message_ = std::string(message) +
-    "This is a bit array application.\n\n" +
+    "This is a bit array application.\n" +
     "In fact, this app doesn't make any sense. The only purpose " +
     "of this application is to show you how a bit array works."
     "Please provide arguments in the following format:\n\n"+
 
     "  $ " + appname + " <bit-array1> <bit-array2> <command>\n\n" +
 
-    "where <bit-array> is a binary string.\n\n" +
+    "where <bit-array> is a binary string.\n" +
     "The list of the possible commands with its arguments:\n" +
     "  getsize\t\t returns size of the first bit array\n" +
-    "  set <bit-number>\t\t sets bit in the first bit array\n" +
-    "  clear <bit-number>\t\t clears bit in the first bit array\n" +
+    "  set <bit num>\t\t sets bit in the first bit array\n" +
+    "  clear <bit num>\t\t clears bit in the first bit array\n" +
     "  invert\t\t inverts the first bit array\n" +
-    "  union\t\t the \"union\" operation on the bit arrays\n " +
-    "  intersection\t\t the \"intersection\" operation on the bit arrays\n " +
+    "  union\t\t the \"union\" operation on the bit arrays\n" +
+    "  intersection\t\t the \"intersection\" operation on the bit arrays\n" +
     "  xor\t\t the \"xor\" operation on the bit arrays.";
 }
 

@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_can_Invert_Bitarray PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Get_Size_Of_Bitarray
-    COMMAND ${APPLICATION} "0011" "0" "invert"
+    COMMAND ${APPLICATION} "0011" "0" "getsize"
 )
 set_tests_properties (${prefix}_can_Get_Size_Of_Bitarray PROPERTIES
     PASS_REGULAR_EXPRESSION "4"
@@ -57,4 +57,12 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Intersect_Bitarrays PROPERTIES
     PASS_REGULAR_EXPRESSION "011101"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Xor_Bitarrays
+    COMMAND ${APPLICATION} "0011" "011101" "intersection"
+)
+set_tests_properties (${prefix}_can_Intersect_Bitarrays PROPERTIES
+    PASS_REGULAR_EXPRESSION "010001"
     LABELS "${MODULE}")
