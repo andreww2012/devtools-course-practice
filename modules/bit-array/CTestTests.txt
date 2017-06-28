@@ -45,10 +45,10 @@ set_tests_properties (${prefix}_can_Get_Size_Of_Bitarray PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Unite_Bitarrays
-    COMMAND ${APPLICATION} "0011" "011101" "union"
+    COMMAND ${APPLICATION} "1011" "011101" "union"
 )
 set_tests_properties (${prefix}_can_Unite_Bitarrays PROPERTIES
-    PASS_REGULAR_EXPRESSION "011101"
+    PASS_REGULAR_EXPRESSION "111101"
     LABELS "${MODULE}")
 
 add_test(
