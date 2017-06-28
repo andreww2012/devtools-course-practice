@@ -9,7 +9,7 @@ typedef unsigned int MemoryBlock;
 
 class BitArray {
 public:
-  explicit BitArray(const int size);
+  explicit BitArray(const int size = 32);
   BitArray(const BitArray& bit_array);
   ~BitArray(void);
 
