@@ -26,20 +26,21 @@ void BitArrayApp::Help(const char* appname, const char* message) {
     "  xor\t\t the \"xor\" operation on the bit arrays.";
 }
 
-void BitArrayApp::ParseBitArray(const std::string& bit_array) {
-  const int bit_array_size = bit_array.size();
+void BitArrayApp::ParseBitArray(const std::string& bit_array_str,
+BitArray* bit_array) {
+  const int bit_array_size = bit_array_str.size();
 
   BitArray ba(bit_array_size);
 
   for (int i = 0; i < bit_array_size; i++) {
-    if (bit_array[i] == 1) {
+    if (bit_array_str[i] == '1') {
       ba.SetBit(i);
-    } else if (bit_array[i] != 0) {
+    } else if (bit_array_str[i] != '0') {
       throw 1;
     }
   }
 
-  bit_array1_ = ba;
+  *bit_array = ba;
 }
 
 std::string BitArrayApp::operator()(int argc, const char** argv) {
@@ -61,8 +62,8 @@ std::string BitArrayApp::operator()(int argc, const char** argv) {
   }
 
   try {
-    ParseBitArray(bit_array_str1);
-    ParseBitArray(bit_array_str2);
+    ParseBitArray(bit_array_str1, &bit_array1_);
+    ParseBitArray(bit_array_str2, &bit_array2_);
   } catch (int e) {
     Help(argv[0], "Error: there is an incorrect bit array.\n\n");
     return message_;
@@ -75,15 +76,13 @@ std::string BitArrayApp::operator()(int argc, const char** argv) {
   } else if (command == "set") {
     try {
       bit_array1_.SetBit(command_argument);
-    }
-    catch (std::string& e) {
+    } catch (std::string& e) {
       Help(argv[0], "Error: incorrect index.\n\n");
     }
   } else if (command == "clear") {
     try {
       bit_array1_.ClearBit(command_argument);
-    }
-    catch (std::string& e) {
+    } catch (std::string& e) {
       Help(argv[0], "Error: incorrect index.\n\n");
     }
   } else if (command == "invert") {

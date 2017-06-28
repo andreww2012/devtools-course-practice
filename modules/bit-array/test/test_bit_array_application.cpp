@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "include/bit_array_application.h"
 
@@ -26,6 +27,8 @@ class ApplicationTest: public ::testing::Test {
   }
 
   void Assert(std::string expected) {
+    std::cout << output_ << std::endl;
+    std::cout << expected << std::endl;
     EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
   }
 
@@ -58,7 +61,7 @@ TEST_F(ApplicationTest, app_checks_incorrect_first_bit_array) {
   Assert("Error: there is an incorrect bit array.*");
 }
 
-TEST_F(ApplicationTest, app_checks_incorrect_secound_bit_array) {
+TEST_F(ApplicationTest, app_checks_incorrect_second_bit_array) {
   std::vector<std::string> args = {"110001", "incorrect", "getsize"};
 
   Act(args);
