@@ -3,22 +3,21 @@
 #ifndef MODULES_BIT_ARRAY_INCLUDE_BIT_ARRAY_APPLICATION_H_
 #define MODULES_BIT_ARRAY_INCLUDE_BIT_ARRAY_APPLICATION_H_
 
+#include "include/bit_array.h"
+
 #include <string>
 
-class Application {
+class BitArrayApp {
  public:
-  Application();
+  BitArrayApp(void);
   std::string operator()(int argc, const char** argv);
 
  private:
   std::string message_;
+  BitArray bit_array1_, bit_array2_;
 
-  void Help(const char* appname, const char* message = "");
-  static bool ValidateNumberOfArguments(int argc, const char** argv);
-
-  typedef struct {
-
-  } Arguments;
+  std::string Help(const char* appname, const char* message = "");
+  void ParseBitArray(const std::string& bit_array);
 };
 
 #endif // MODULES_BIT_ARRAY_INCLUDE_BIT_ARRAY_APPLICATION_H_
