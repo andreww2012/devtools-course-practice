@@ -86,7 +86,7 @@ std::string BitArrayApp::operator()(int argc, const char** argv) {
   } else if (command == "clear") {
     try {
       bit_array1_.ClearBit(command_argument);
-      message_ = bit_array2_.ToString();
+      message_ = bit_array1_.ToString();
     } catch (std::string& e) {
       Help(argv[0], "Error: incorrect index.\n\n");
     }
