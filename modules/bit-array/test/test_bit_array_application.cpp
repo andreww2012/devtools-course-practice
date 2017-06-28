@@ -4,6 +4,9 @@
 
 #include "include/bit_array_application.h"
 
+#include <string>
+#include <vector>
+
 using ::testing::internal::RE;
 
 class ApplicationTest: public ::testing::Test {

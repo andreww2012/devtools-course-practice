@@ -57,7 +57,7 @@ std::string BitArrayApp::operator()(int argc, const char** argv) {
   int command_argument = -1;
 
   if (argc == 5) {
-    command_argument = argv[4];
+    command_argument = std::stoi(std::string(argv[4]));
   }
 
   try {
@@ -70,49 +70,36 @@ std::string BitArrayApp::operator()(int argc, const char** argv) {
 
   BitArray ba;
 
-  switch (command) {
-    case "getsize":
-      message_ = bit_array1_.GetSize();
-      break;
-
-    case "set":
-      try {
-        bit_array1_.SetBit(command_argument);
-      } catch (std::string& e) {
-        Help(argv[0], "Error: incorrect index.\n\n");
-      }
-      break;
-
-    case "clear":
-      try {
-        bit_array1_.ClearBit(command_argument);
-      } catch (std::string& e) {
-        Help(argv[0], "Error: incorrect index.\n\n");
-      }
-      break;
-
-    case "invert":
-      ba = ~bit_array1_;
-      message_ = ba.ToString();
-      break;
-
-    case "union":
-      ba = bit_array1_ | bit_array2_;
-      message_ = ba.ToString();
-      break;
-
-    case "intersection":
-      ba = bit_array1_ & bit_array2_;
-      message_ = ba.ToString();
-      break;
-
-    case "xor":
-      ba = bit_array1_ ^ bit_array2_;
-      message_ = ba.ToString();
-      break;
-
-    default:
-      Help(argv[0], "Error: command is not specified.");
+  if (command == "getsize") {
+    message_ = bit_array1_.GetSize();
+  } else if (command == "set") {
+    try {
+      bit_array1_.SetBit(command_argument);
+    }
+    catch (std::string& e) {
+      Help(argv[0], "Error: incorrect index.\n\n");
+    }
+  } else if (command == "clear") {
+    try {
+      bit_array1_.ClearBit(command_argument);
+    }
+    catch (std::string& e) {
+      Help(argv[0], "Error: incorrect index.\n\n");
+    }
+  } else if (command == "invert") {
+    ba = ~bit_array1_;
+    message_ = ba.ToString();
+  } else if (command == "union") {
+    ba = bit_array1_ | bit_array2_;
+    message_ = ba.ToString();
+  } else if (command == "intersection") {
+    ba = bit_array1_ & bit_array2_;
+    message_ = ba.ToString();
+  } else if (command == "xor") {
+    ba = bit_array1_ ^ bit_array2_;
+    message_ = ba.ToString();
+  } else {
+    Help(argv[0], "Error: command is not specified.");
   }
 
   return message_;
