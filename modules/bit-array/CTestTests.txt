@@ -1,0 +1,84 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a bit array application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} "0011" "11110"
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: should be 3 or 4 arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Invert_Bitarray
+    COMMAND ${APPLICATION} "0011" "0" "invert"
+)
+set_tests_properties (${prefix}_can_Invert_Bitarray PROPERTIES
+    PASS_REGULAR_EXPRESSION "1100"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Get_Size_Of_Bitarray
+    COMMAND ${APPLICATION} "0011" "0" "getsize"
+)
+set_tests_properties (${prefix}_can_Get_Size_Of_Bitarray PROPERTIES
+    PASS_REGULAR_EXPRESSION "4"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Unite_Bitarrays
+    COMMAND ${APPLICATION} "1011" "011101" "union"
+)
+set_tests_properties (${prefix}_can_Unite_Bitarrays PROPERTIES
+    PASS_REGULAR_EXPRESSION "111101"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Intersect_Bitarrays
+    COMMAND ${APPLICATION} "0011" "011101" "inter"
+)
+set_tests_properties (${prefix}_can_Intersect_Bitarrays PROPERTIES
+    PASS_REGULAR_EXPRESSION "001100"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Xor_Bitarrays
+    COMMAND ${APPLICATION} "0011" "011101" "xor"
+)
+set_tests_properties (${prefix}_can_Xor_Bitarrays PROPERTIES
+    PASS_REGULAR_EXPRESSION "010001"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Clear_Bit
+    COMMAND ${APPLICATION} "0011" "0" "clear" "2"
+)
+set_tests_properties (${prefix}_can_Clear_Bit PROPERTIES
+    PASS_REGULAR_EXPRESSION "0001"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Set_Bit
+    COMMAND ${APPLICATION} "0011" "0" "set" "1"
+)
+set_tests_properties (${prefix}_can_Set_Bit PROPERTIES
+    PASS_REGULAR_EXPRESSION "0111"
+    LABELS "${MODULE}")
