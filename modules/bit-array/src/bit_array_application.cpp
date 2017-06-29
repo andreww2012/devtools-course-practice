@@ -18,13 +18,13 @@ void BitArrayApp::Help(const char* appname, const char* message) {
 
     "where <bit-array> is a binary string.\n" +
     "The list of the possible commands with its arguments:\n" +
-    "  getsize\t\t returns size of the first bit array\n" +
-    "  set <bit num>\t\t sets bit in the first bit array\n" +
-    "  clear <bit num>\t\t clears bit in the first bit array\n" +
-    "  invert\t\t inverts the first bit array\n" +
-    "  union\t\t the \"union\" operation on the bit arrays\n" +
-    "  inter\t\t the \"intersection\" operation on the bit arrays\n" +
-    "  xor\t\t the \"xor\" operation on the bit arrays.";
+    " getsize\t\t returns size of the first bit array\n" +
+    " set <bit num>\t\t sets bit in the first bit array\n" +
+    " clear <bit num>\t\t clears bit in the first bit array\n" +
+    " invert\t\t inverts the first bit array\n" +
+    " union\t\t the \"union\" operation on the bit arrays\n" +
+    " inter\t\t the \"intersection\" operation on the bit arrays\n" +
+    " xor\t\t the \"xor\" operation on the bit arrays.";
 }
 
 void BitArrayApp::ParseBitArray(const std::string& bit_array_str,
